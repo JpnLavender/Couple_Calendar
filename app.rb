@@ -11,7 +11,18 @@ end
 get '/calendar' do
   erb :index
 end
- 
+
+post '/add_event' do
+  user = User.find_by(user_token: session[:user])
+  Calendar.create(
+    user: user,
+    event_title: params[:title],
+    bio: params[:note],
+    event_start: params[:event_start],
+    event_end: params[:event_end]
+  )
+end
+
 get '/sign_in' do
   @sign_action, @sign_submit_text, @sign_title = "/sign_in", "Login", "sign_in"
   erb :sign

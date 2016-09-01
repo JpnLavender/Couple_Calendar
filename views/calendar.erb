@@ -13,14 +13,19 @@ $(document).ready(function() {
     defaultDate: '<%= Date.today %>',
     editable: true,
     events: [
-      {
-        title: 'All Day Event',
-        start: '2016-09-01'
-      }]
+      <%= @events.each do |event| %>
+        {
+          title: '<%= event.title %>',
+          start: '<%= event.event_start %>',
+          end:   '<%= event.event_end %>'
+        },
+      <% end %>
+    ]
   })
 });
 </script>
 <div id='calendar'></div>
 <form action="/add_event" method="POST">
-  <input type="text" name="title">
+  <input type="text" name="title" class="form-control" placeholder="EventTitle">
+  <input type="submit">
 </form>
