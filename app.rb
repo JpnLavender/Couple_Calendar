@@ -34,7 +34,7 @@ end
 
 post '/sign_up' do
   unless User.where(mail: params[:mail]).exists?
-    user = User.create(mail: params[:mail], user_token: Create.token ,password: params[:password], password_confirmation: params[:password])
+    user = User.create(mail: params[:mail], user_token: Create.user_token ,password: params[:password], password_confirmation: params[:password])
     session[:user] = user.user_token
     redirect '/calendar'
   else

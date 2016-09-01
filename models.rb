@@ -6,8 +6,13 @@ if development?
 end
 
 class Create
-  def self.token
-    SecureRandom.uuid
+  def self.user_token
+    token = SecureRandom.uuid
+    if User.where(user_token: token).exists?
+      Create.token
+    else
+      token
+    end
   end
 end
 
