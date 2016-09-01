@@ -8,6 +8,7 @@ gem 'sinatra-contrib'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'curb'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'sqlite3'

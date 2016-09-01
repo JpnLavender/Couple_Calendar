@@ -14,6 +14,7 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.1)
     backports (3.6.8)
+    bcrypt (3.1.11)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     curb (0.9.3)
@@ -67,6 +68,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  bcrypt
   curb
   hirb
   hirb-unicode
