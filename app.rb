@@ -3,6 +3,7 @@ Bundler.require
 require 'sinatra/reloader' if development?
 require 'sinatra'
 require './models.rb'
+enable :sessions
 
 get '/' do
   erb :index
