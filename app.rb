@@ -9,9 +9,11 @@ get '/' do
 end
  
 get '/sign_in' do
+  @sign_action, @sign_submit_text = "/sign_in", "Login"
   erb :sign
 end
 
 get '/sign_up' do
+  @sign_action, @sign_submit_text = "/sign_up", "CreateAccount"
   erb :sign
 end
