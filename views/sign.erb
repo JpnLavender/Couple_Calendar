@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  <form action="<%= @sign_action.to_s %>" method="POST">
-    <input type="text" name="mail">
-    <input type="password" name="password">
-    <input type="submit" value="<%= @sign_submit_text.to_s %>">
-  </form>
-</body>
-</html>
+<h1><%= @sign_title.to_s %></h1>
+<form action="<%= @sign_action.to_s %>" method="POST">
+  <input type="text" name="mail" class="form-control" placeholder="MailAddress">
+  <input type="password" name="password" class="form-control" placeholder="password">
+  <input type="submit" value="<%= @sign_submit_text.to_s %>" class="form-control">
+</form>
