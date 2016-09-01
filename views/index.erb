@@ -3,8 +3,31 @@
   <head>
     <meta charset="UTF-8">
     <title>タイトル</title>
+    <link rel="stylesheet" type="text/css" href="./fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="./fullcalendar/fullcalendar.print.css" media='print'>
+    <script src="./fullcalendar/lib/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="./fullcalendar/fullcalendar.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      $('#calendar').fullCalendar({
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,agendaWeek,agendaDay'
+        },
+        defaultDate: '<%= Date.today %>',
+        editable: true,
+        events: [
+          {
+            title: 'All Day Event',
+            start: '2016-09-01'
+          }]
+      })
+    });
+    </script>
   </head>
   <body>
-
+    <div id='calendar'></div>
   </body>
 </html>
