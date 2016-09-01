@@ -5,6 +5,10 @@
   <title></title>
 </head>
 <body>
-  
+  <form action="<%= @sign_action.to_s %>" method="POST">
+    <input type="text" name="mail">
+    <input type="password" name="password">
+    <input type="submit" value="<%= @sign_submit_text.to_s %>">
+  </form>
 </body>
 </html>
