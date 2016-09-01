@@ -9,11 +9,11 @@ get '/' do
 end
 
 get '/calendar' do
-  erb :calendar
+  erb :index
 end
  
 get '/sign_in' do
-  @sign_action, @sign_submit_text = "/sign_in", "Login"
+  @sign_action, @sign_submit_text, @sign_title = "/sign_in", "Login", "sign_in"
   erb :sign
 end
 
@@ -28,7 +28,7 @@ post '/sign_in' do
 end
 
 get '/sign_up' do
-  @sign_action, @sign_submit_text = "/sign_up", "CreateAccount"
+  @sign_action, @sign_submit_text, @sign_title = "/sign_up", "CreateAccount", "sign_up"
   erb :sign
 end
 
