@@ -9,6 +9,7 @@ get '/' do
 end
 
 get '/calendar' do
+  @events = User.find_by(user_token: session[:user]).calendars
   erb :index
 end
 
