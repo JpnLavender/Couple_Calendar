@@ -5,6 +5,12 @@ if development?
   ActiveRecord::Base.establish_connection("sqlite3:db/development.db")
 end
 
+class Create
+  def self.token
+    SecureRandom.uuid
+  end
+end
+
 class User < ActiveRecord::Base
   has_many :calendars
   has_secure_password
