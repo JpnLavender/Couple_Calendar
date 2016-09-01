@@ -5,5 +5,9 @@ body{
 }
 
 input{
-  margin: 5px;
+  margin: 15px;
+}
+
+h1{
+  text-align: center;
 }
