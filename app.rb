@@ -7,6 +7,10 @@ require './models.rb'
 get '/' do
   erb :index
 end
+
+get '/calendar' do
+  erb :calendar
+end
  
 get '/sign_in' do
   @sign_action, @sign_submit_text = "/sign_in", "Login"
@@ -17,7 +21,7 @@ post '/sign_in' do
   user = User.find_by_mail(params[:mail])
   if user && user.authenticate(params[:password])
     session[:user] = user.user_token
-    redirect '/'
+    redirect '/calendar'
   else
     redirect '/sign_in'
   end
@@ -30,8 +34,9 @@ end
 
 post '/sign_up' do
   unless User.where(mail: params[:mail]).exists?
-    User.create(mail: params[:mail], user_token: Create.token ,password: params[:password], password_confirmation: params[:password])
-    redirect '/'
+    user = User.create(mail: params[:mail], user_token: Create.token ,password: params[:password], password_confirmation: params[:password])
+    session[:user] = user.user_token
+    redirect '/calendar'
   else
     redirect '/sign_up'
   end
