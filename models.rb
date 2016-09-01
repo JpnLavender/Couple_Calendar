@@ -10,3 +10,6 @@ class User < ActiveRecord::Base
   validates :mail, presence: true, format: {with:/.+@.+/}
   validates :password, confirmation: true, unless: Proc.new { |a| a.password.blank? }
 end
+
+class Calendar < ActiveRecord::Base
+end
