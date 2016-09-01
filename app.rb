@@ -29,7 +29,7 @@ get '/sign_up' do
 end
 
 post '/sign_up' do
-  unless User.where(user_name: params[:user_name]).exists?
+  unless User.where(mail: params[:mail]).exists?
     User.create(mail: params[:mail], user_token: Create.token ,password: params[:password], password_confirmation: params[:password])
     redirect '/'
   else
